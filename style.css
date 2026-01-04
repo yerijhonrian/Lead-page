@@ -1,0 +1,360 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ================= VARIÁVEIS ================= */
+
+:root {
+  --bg-dark: #070a0f;
+  --bg-dark-2: #0c1118;
+
+  --primary: #1aff6a;
+  --primary-soft: rgba(26, 255, 106, 0.15);
+
+  --text: #e9fdf3;
+  --muted: #9bbfb0;
+  --danger: #ff6b6b;
+}
+
+/* ================= BASE ================= */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Inter", system-ui, sans-serif;
+  background: radial-gradient(circle at top, #0d1b2a, var(--bg-dark));
+  color: var(--text);
+  line-height: 1.55;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ================= CONTAINER ================= */
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 24px;
+}
+
+.section {
+  padding: 90px 0;
+}
+
+.section.dark {
+  background: linear-gradient(180deg, var(--bg-dark), var(--bg-dark-2));
+}
+
+.center {
+  text-align: center;
+}
+
+/* ================= HERO ================= */
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.badge {
+  color: var(--primary);
+  font-size: 0.75rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+
+/* headline mais agressiva */
+.hero-content h1 {
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  margin: 18px 0 20px;
+  line-height: 1.25;
+}
+
+.hero-content h1 strong {
+  color: var(--primary);
+}
+
+/* texto mais direto */
+.hero-content p {
+  color: var(--muted);
+  max-width: 520px;
+  margin-bottom: 30px;
+}
+
+/* imagem */
+.photo-my {
+  max-width: 360px;
+  margin: 30px 0;
+  transform: scaleX(-1);
+}
+
+.text-link {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  left: 20%;
+  margin-top: 12px;
+  font-size: 0.85rem;
+  color: var(--muted);
+  transition: color .2s ease;
+}
+
+.text-link:hover {
+  color: var(--primary);
+}
+
+/* ================= CARD DE TENSÃO ================= */
+
+.hero-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--primary-soft);
+  padding: 28px;
+  border-radius: 18px;
+  backdrop-filter: blur(6px);
+}
+
+.hero-card h3 {
+  font-size: 1rem;
+  margin-bottom: 16px;
+}
+
+.hero-card ul {
+  list-style: none;
+}
+
+.hero-card li {
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, .05);
+  font-size: 0.9rem;
+}
+
+/* ================= BOTÃO ================= */
+
+.btn-primary {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  padding: 15px 36px;
+  background: linear-gradient(90deg, #1aff6a, #00e060);
+  color: #002b16;
+  border-radius: 999px;
+  font-weight: 600;
+  box-shadow: 0 0 30px rgba(26, 255, 106, .45);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 45px rgba(26, 255, 106, .7);
+}
+
+.btn-primary::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -80%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg,
+      transparent,
+      rgba(255, 255, 255, .4),
+      transparent);
+  transform: skewX(-20deg);
+  animation: brilho 4s infinite;
+}
+
+.btn-primary {
+  will-change: transform;
+}
+
+.hero-image {
+  max-width: min(420px, 100%);
+}
+
+@keyframes brilho {
+  0% {
+    left: -80%;
+    opacity: 0;
+  }
+
+  30% {
+    opacity: 1;
+  }
+
+  50% {
+    left: 120%;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+.microcopy {
+  margin-top: 10px;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+/* ================= PROBLEMAS ================= */
+
+.problems {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-top: 50px;
+}
+
+.problem-card {
+  padding: 22px;
+  background: rgba(255, 255, 255, .03);
+  border-left: 4px solid var(--danger);
+  border-radius: 12px;
+  font-size: 0.9rem;
+}
+
+/* ================= SOLUÇÃO ================= */
+
+.solution-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+  margin-top: 60px;
+}
+
+.solution-item {
+  background: rgba(255, 255, 255, .04);
+  padding: 30px;
+  border-radius: 16px;
+}
+
+.solution-item h3 {
+  color: var(--primary);
+  margin-bottom: 10px;
+}
+
+/* ================= AUTORIDADE ================= */
+
+.authority {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.authority-text p {
+  margin-bottom: 18px;
+  color: var(--muted);
+}
+
+.bot-human {
+  max-width: 340px;
+  border-radius: 24px;
+}
+
+/* ================= EFEITO ECLIPSE HERO IMAGE ================= */
+
+.hero-image {
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  display: block;
+  margin: auto;
+
+  /* Efeito eclipse */
+  -webkit-mask-image: radial-gradient(ellipse 85% 70% at 50% 25%,
+      rgba(255, 255, 255, 1) 60%,
+      rgba(255, 255, 255, 0) 100%);
+
+  mask-image: radial-gradient(ellipse 85% 70% at 50% 25%,
+      rgba(255, 255, 255, 1) 60%,
+      rgba(255, 255, 255, 0) 100%);
+}
+
+/* ================= ANIMAÇÕES ================= */
+
+.animate-up,
+.animate-left,
+.animate-right {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* Direções específicas */
+.animate-left {
+  transform: translateX(-60px);
+}
+
+.animate-right {
+  transform: translateX(60px);
+}
+
+/* Quando ativar */
+.animate-show {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+/* ================= RESPONSIVO ================= */
+
+/* Ajuste mobile */
+@media (max-width: 500px) {
+  .hero-image {
+    max-width: 300px;
+    -webkit-mask-image: radial-gradient(ellipse 90% 80% at 50% 20%,
+        rgba(255, 255, 255, 1) 65%,
+        rgba(255, 255, 255, 0) 100%);
+    mask-image: radial-gradient(ellipse 90% 80% at 50% 20%,
+        rgba(255, 255, 255, 1) 65%,
+        rgba(255, 255, 255, 0) 100%);
+  }
+}
+
+@media (max-width: 900px) {
+
+  .hero-grid,
+  .authority {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .text-link {
+    left: 0;
+    margin: 12px auto 0;
+  }
+  .hero-content p {
+    margin-inline: auto;
+  }
+
+  .solution-grid,
+  .problems {
+    grid-template-columns: 1fr 1fr;
+  }
+  .section {
+  padding: 60px 0;
+}
+}
+
+@media (max-width: 500px) {
+
+  .solution-grid,
+  .problems {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-content h1 {
+    font-size: 1.4rem;
+  }
+}
